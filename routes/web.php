@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home','AdminController@index')->name('admin.home');
 // Authentication Routes...
 
-Route::group(['namespace'=>'Admin','as'=>'admin.'],function(){
+Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
 
 	Route::get('login', 'LoginController@showLoginForm')->name('login');
     Route::post('login', 'LoginController@login');
