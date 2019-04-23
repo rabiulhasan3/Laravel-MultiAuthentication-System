@@ -59,6 +59,17 @@ class LoginController extends Controller
         return Auth::guard('admin');
     }
 
+      /**
+     * Get the needed authorization credentials from the request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return array
+     */
+    protected function credentials(Request $request)
+    {
+         return ['email'=>$request{$this->username()},'password'=>$request->password,'status'=>1];
+    }
+
 
         /**
      * Send the response after the user was authenticated.
