@@ -20,6 +20,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('admin/home','AdminController@index')->name('admin.home');
+
+Route::get('admin/editor','EditorController@index')->name('admin.editor');
+
+Route::get('admin/test','EditorController@test')->name('admin.test');
+
+Route::get('admin/test1','EditorController@test1')->name('admin.test1');
 // Authentication Routes...
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
@@ -37,7 +43,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin','as'=>'admin.'],function(){
     Route::post('password/reset', 'ResetPasswordController@reset')->name('password.update');
 
 });
+
+Route::get('admin-access','AdminController@adminAccess');
        
 
 
-
+Route::get('user-access','HomeController@access');
+      

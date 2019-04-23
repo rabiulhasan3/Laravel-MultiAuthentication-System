@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,7 @@ class AdminController extends Controller
     public function __construct()
     {
         $this->middleware('auth:admin');
+        $this->middleware('admin');
     }
 
         /**
@@ -24,5 +26,10 @@ class AdminController extends Controller
     public function index()
     {
         return view('admin.home');
+    }
+
+
+    public function adminAccess(){
+        return 'Admin Access';
     }
 }
